@@ -1,0 +1,1 @@
+export const FETCH_TOUR_BY_ID = 'FETCH_TOUR_BY_ID';
