@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Pannellum } from 'pannellum-react';
 import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
+
+import useStyles from './styles';
 
 const Tour = () => {
 
-  const [tour, setTour] = useState({
-    name: 'IIE CELL',
-    description: 'Innovation Incubation and Enterpreneurship Cell (IIE Cell) of Walchand College of Engineering is a newly formed department to look out for innovation ideas and encourage students to start their own start-ups.',
-    image: 'https://res.cloudinary.com/ravikjha7/image/upload/v1681931577/WCE%20Virtual%20Tour/IEEE_Cell_jdzb5h.jpg',
-    left: '643e2ef08330d373550a9696'
-  });
+  const classes = useStyles();
 
-  // useEffect(() => {
-  //   // handleClick('64403f2a51360e7a191717db');
-  //   handleSpeak();
-  // }, []);/
+  const [tour, setTour] = useState({});
+
+  useEffect(() => {
+    handleClick('64403f2a51360e7a191717db');
+  }, []);
+
 
   const handleSpeak = () => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(tour.description);
-    console.log(utterance);
     synth.speak(utterance);
-    // synth.speak(utterance);
   };
 
   const handleClick = (id) => {
@@ -35,8 +33,8 @@ const Tour = () => {
   }
 
   return (
-    <div>
-        <h1>{tour.name}</h1>
+    <div className={classes.root}>
+      <Typography className={classes.title} variant="h1">{tour.name}</Typography>
       <Pannellum
         width="100%"
         height="898px"
@@ -52,41 +50,97 @@ const Tour = () => {
         }}
       >
 
-      <Pannellum.Hotspot
-        type="custom"
-        pitch={181}
-        yaw={-165}
-        handleClick={(evt , name) => handleClick(tour.left)}
-        name="hs1"
-      />
+        <Pannellum.Hotspot
+          type="custom"
+          pitch={181}
+          yaw={-165}
+          tooltip={(hotSpotDiv) => {
+            const arrow = document.createElement("div");
+            arrow.style.position = "absolute";
+            arrow.style.top = "-20px";
+            arrow.style.left = "calc(50% - 20px)";
+            arrow.style.borderLeft = "20px solid transparent";
+            arrow.style.borderRight = "20px solid transparent";
+            arrow.style.borderBottom = "20px solid white";
+            hotSpotDiv.appendChild(arrow);
 
-<Pannellum.Hotspot
-        type="custom"
-        pitch={181}
-        yaw={-10}
-        handleClick={(evt , name) => handleClick(tour.right)}
-        name="hs1"
-      />
+            // const text = document.createElement("div");
+            // text.style.position = "absolute";
+            // text.style.top = "10px";
+            // text.style.left = "calc(50% - 40px)";
+            // text.style.width = "80px";
+            // text.style.textAlign = "center";
+            // text.style.color = "white";
+            // text.textContent = tour.left.name;
+            // hotSpotDiv.appendChild(text);
 
-<Pannellum.Hotspot
-        type="custom"
-        pitch={181}
-        yaw={-90}
-        handleClick={(evt , name) => handleClick(tour.up)}
-        name="hs1"
-      />
+          }}
+          handleClick={(evt , name) => handleClick(tour.left)}
+          name="hs1"
+          className={classes.hotspot}
+        />
 
-<Pannellum.Hotspot
-        type="custom"
-        pitch={181}
-        yaw={120}
-        handleClick={(evt , name) => handleClick(tour.down)}
-        name="hs1"
-      />
+        <Pannellum.Hotspot
+          type="custom"
+          pitch={181}
+          yaw={-10}
+          tooltip={(hotSpotDiv) => {
+            const arrow = document.createElement("div");
+            arrow.style.position = "absolute";
+            arrow.style.top = "-20px";
+            arrow.style.left = "calc(50% - 20px)";
+            arrow.style.borderLeft = "20px solid transparent";
+            arrow.style.borderRight = "20px solid transparent";
+            arrow.style.borderBottom = "20px solid white";
+            hotSpotDiv.appendChild(arrow);
+          }}
+          handleClick={(evt , name) => handleClick(tour.right)}
+          name="hs2"
+          className={classes.hotspot}
+        />
+
+        <Pannellum.Hotspot
+          type="custom"
+          pitch={181}
+          yaw={-90}
+          tooltip={(hotSpotDiv) => {
+            const arrow = document.createElement("div");
+            arrow.style.position = "absolute";
+            arrow.style.top = "-20px";
+            arrow.style.left = "calc(50% - 20px)";
+            arrow.style.borderLeft = "20px solid transparent";
+            arrow.style.borderRight = "20px solid transparent";
+            arrow.style.borderBottom = "20px solid white";
+            hotSpotDiv.appendChild(arrow);
+          }}
+          handleClick={(evt , name) => handleClick(tour.up)}
+          name="hs3"
+          className={classes.hotspot}
+        />
+
+        <Pannellum.Hotspot
+          type="custom"
+          pitch={181}
+          yaw={120}
+          tooltip={(hotSpotDiv) => {
+            const arrow = document.createElement("div");
+            arrow.style.position = "absolute";
+            arrow.style.top = "-20px";
+            arrow.style.left = "calc(50% - 20px)";
+            arrow.style.borderLeft = "20px solid transparent";
+            arrow.style.borderRight = "20px solid transparent";
+            arrow.style.borderBottom = "20px solid white";
+            hotSpotDiv.appendChild(arrow);
+          }}
+          handleClick={(evt , name) => handleClick(tour.down)}
+          name="hs4"
+          className={classes.hotspot}
+        />
 
       </Pannellum>
     </div>
   );
 }
+
 
 export default Tour;
