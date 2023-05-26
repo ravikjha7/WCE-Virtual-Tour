@@ -13,7 +13,7 @@ const Tour = () => {
   const [tour, setTour] = useState({});
 
   useEffect(() => {
-    handleClick('64508cf0b08c7b8297f1b5ac');
+    handleClick('64403f2a51360e7a191717db');
   }, []);
 
 
@@ -35,7 +35,7 @@ const Tour = () => {
 
   return (
     <div className={classes.root}>
-      {/* <Map /> */}
+      <Map />
       <Typography className={classes.title} variant="h1">{tour.name}</Typography>
       <Pannellum
         width="100%"
@@ -66,18 +66,18 @@ const Tour = () => {
             arrow.style.borderBottom = "20px solid white";
             hotSpotDiv.appendChild(arrow);
 
-            const text = document.createElement("div");
-            text.style.position = "absolute";
-            text.style.top = "10px";
-            text.style.left = "calc(50% - 40px)";
-            text.style.width = "80px";
-            text.style.textAlign = "center";
-            text.style.color = "white";
-            text.textContent = tour.left ? tour.left.name : 'NULL';
-            hotSpotDiv.appendChild(text);
+            // const text = document.createElement("div");
+            // text.style.position = "absolute";
+            // text.style.top = "10px";
+            // text.style.left = "calc(50% - 40px)";
+            // text.style.width = "80px";
+            // text.style.textAlign = "center";
+            // text.style.color = "white";
+            // text.textContent = tour.left.name;
+            // hotSpotDiv.appendChild(text);
 
           }}
-          handleClick={(evt , name) => handleClick(tour.left.id)}
+          handleClick={(evt , name) => handleClick(tour.left)}
           name="hs1"
           className={classes.hotspot}
         />
@@ -95,18 +95,8 @@ const Tour = () => {
             arrow.style.borderRight = "20px solid transparent";
             arrow.style.borderBottom = "20px solid white";
             hotSpotDiv.appendChild(arrow);
-
-            const text = document.createElement("div");
-            text.style.position = "absolute";
-            text.style.top = "10px";
-            text.style.left = "calc(50% - 40px)";
-            text.style.width = "80px";
-            text.style.textAlign = "center";
-            text.style.color = "white";
-            text.textContent = tour.right ? tour.right.name : 'NULL';
-            hotSpotDiv.appendChild(text);
           }}
-          handleClick={(evt , name) => handleClick(tour.right.id)}
+          handleClick={(evt , name) => handleClick(tour.right)}
           name="hs2"
           className={classes.hotspot}
         />
@@ -124,18 +114,8 @@ const Tour = () => {
             arrow.style.borderRight = "20px solid transparent";
             arrow.style.borderBottom = "20px solid white";
             hotSpotDiv.appendChild(arrow);
-
-            const text = document.createElement("div");
-            text.style.position = "absolute";
-            text.style.top = "10px";
-            text.style.left = "calc(50% - 40px)";
-            text.style.width = "80px";
-            text.style.textAlign = "center";
-            text.style.color = "white";
-            text.textContent = tour.up ? tour.up.name : 'NULL';
-            hotSpotDiv.appendChild(text);
           }}
-          handleClick={(evt , name) => handleClick(tour.up.id)}
+          handleClick={(evt , name) => handleClick(tour.up)}
           name="hs3"
           className={classes.hotspot}
         />
@@ -153,18 +133,8 @@ const Tour = () => {
             arrow.style.borderRight = "20px solid transparent";
             arrow.style.borderBottom = "20px solid white";
             hotSpotDiv.appendChild(arrow);
-
-            const text = document.createElement("div");
-            text.style.position = "absolute";
-            text.style.top = "10px";
-            text.style.left = "calc(50% - 40px)";
-            text.style.width = "80px";
-            text.style.textAlign = "center";
-            text.style.color = "white";
-            text.textContent = tour.down ? tour.down.name : 'NULL';
-            hotSpotDiv.appendChild(text);
           }}
-          handleClick={(evt , name) => handleClick(tour.down.id)}
+          handleClick={(evt , name) => handleClick(tour.down)}
           name="hs4"
           className={classes.hotspot}
         />

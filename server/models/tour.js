@@ -13,10 +13,12 @@ const TourSchema = new Mongoose.Schema({
         type: String,
         required: true
     },
-    left: String,
-    right: String,
-    up: String,
-    down: String
+    left: Object,
+    right: Object,
+    up: Object,
+    down: Object,
+    lat: String,
+    lng: String
 
 });
 
